@@ -48,9 +48,14 @@
         status = "okay";
         reg = <0>;
         spi-max-frequency = <2000000>;
-        cpi = <600>;
-        rotate-90;
+
+        cpi = <100>;
     };
 };
 
-
+/ {
+    trackball_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball>;
+    };
+};
