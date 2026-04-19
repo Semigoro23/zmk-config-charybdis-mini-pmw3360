@@ -52,10 +52,3 @@
         cpi = <100>;
     };
 };
-
-/ {
-    trackball_listener {
-        compatible = "zmk,input-listener";
-        device = <&trackball>;
-    };
-};
