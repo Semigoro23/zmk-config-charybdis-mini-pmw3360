@@ -23,7 +23,6 @@
         };
         group2 {
             psels = <NRF_PSEL(SPIM_MISO, 0, 6)>;
-            input-enable;
         };
     };
 
@@ -35,7 +34,6 @@
         };
         group2 {
             psels = <NRF_PSEL(SPIM_MISO, 0, 6)>;
-            input-enable;
             low-power-enable;
         };
     };
@@ -54,7 +52,6 @@
         status = "okay";
         reg = <0>;
         spi-max-frequency = <1000000>;
-
         cpi = <100>;
         rotate-90;
     };
