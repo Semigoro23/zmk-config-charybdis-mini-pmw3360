@@ -19,16 +19,23 @@
     spi0_default: spi0_default {
         group1 {
             psels = <NRF_PSEL(SPIM_SCK, 0, 8)>,
-                    <NRF_PSEL(SPIM_MOSI, 0, 17)>,
-                    <NRF_PSEL(SPIM_MISO, 0, 6)>;
+                    <NRF_PSEL(SPIM_MOSI, 0, 17)>;
+        };
+        group2 {
+            psels = <NRF_PSEL(SPIM_MISO, 0, 6)>;
+            input-enable;
         };
     };
 
     spi0_sleep: spi0_sleep {
         group1 {
             psels = <NRF_PSEL(SPIM_SCK, 0, 8)>,
-                    <NRF_PSEL(SPIM_MOSI, 0, 17)>,
-                    <NRF_PSEL(SPIM_MISO, 0, 6)>;
+                    <NRF_PSEL(SPIM_MOSI, 0, 17)>;
+            low-power-enable;
+        };
+        group2 {
+            psels = <NRF_PSEL(SPIM_MISO, 0, 6)>;
+            input-enable;
             low-power-enable;
         };
     };
@@ -47,11 +54,13 @@
         status = "okay";
         reg = <0>;
         spi-max-frequency = <1000000>;
+
         cpi = <100>;
+        rotate-90;
     };
 };
 
- / {
+/ {
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
